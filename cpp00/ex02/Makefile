@@ -1,6 +1,6 @@
-NAME = megaphone
+NAME = Account
 
-SRC = megaphone.cpp
+SRC = test.cpp Account.cpp
 
 CC = clang++
 FLAGS = -Werror -Wextra -Wall -std=c++98
