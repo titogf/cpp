@@ -46,7 +46,7 @@ int main()
             phonebook->search_contact(std::stoi(input));
         }
         else
-        std::cout << "\nEnter a valid command ('ADD' 'SEARCH' 'EXIT')\n" << std::endl;
+            std::cout << "\nEnter a valid command ('ADD' 'SEARCH' 'EXIT')\n" << std::endl;
     }
     return 0;
 }

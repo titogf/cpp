@@ -27,10 +27,30 @@ void    PhoneBook::set_contact(){
     std::string first_name, last_name, nickname, phone_number, darkest_secret;
 
     std::cout << "first name: "; std::getline(std::cin, first_name);
+    if (!first_name.compare("")){
+        std::cout << "\nContact NOT saved!\n" << std::endl;
+        return ;
+    }
     std::cout << "last name: "; std::getline(std::cin, last_name);
+    if (!last_name.compare("")){
+        std::cout << "\nContact NOT saved!\n" << std::endl;
+        return ;
+    }
     std::cout << "nickname: "; std::getline(std::cin, nickname);
+    if (!nickname.compare("")){
+        std::cout << "\nContact NOT saved!\n" << std::endl;
+        return ;
+    }
     std::cout << "phone number: "; std::getline(std::cin, phone_number);
+    if (!phone_number.compare("")){
+         std::cout << "\nContact NOT saved!\n" << std::endl;
+        return ;
+    }
     std::cout << "darkest secret: "; std::getline(std::cin, darkest_secret);
+    if (!darkest_secret.compare("")){
+         std::cout << "\nContact NOT saved!\n" << std::endl;
+        return ;
+    }
     add_new_contact(first_name, last_name, nickname, phone_number, darkest_secret);
 }
 
@@ -58,9 +78,13 @@ std::string PhoneBook::dot(std::string s){
 }
 
 void    PhoneBook::search_contact(int index){
-    std::cout << "\nfirst name: " << _contact[index].get_first_name() << std::endl;
-    std::cout << "last name: " << _contact[index].get_last_name() << std::endl;
-    std::cout << "nickname: " << _contact[index].get_nickname() << std::endl;
-    std::cout << "phone number: " << _contact[index].get_phone_number() << std::endl;
-    std::cout << "darkest secret: " << _contact[index].get_darkest_secret() << "\n" << std::endl;
+    if (index < 0 || index >= _nb)
+        std::cout << "\nNo Number Found with " << index << std::endl;
+    else{
+        std::cout << "\nfirst name: " << _contact[index].get_first_name() << std::endl;
+        std::cout << "last name: " << _contact[index].get_last_name() << std::endl;
+        std::cout << "nickname: " << _contact[index].get_nickname() << std::endl;
+        std::cout << "phone number: " << _contact[index].get_phone_number() << std::endl;
+        std::cout << "darkest secret: " << _contact[index].get_darkest_secret() << "\n" << std::endl;
+    }
 }
