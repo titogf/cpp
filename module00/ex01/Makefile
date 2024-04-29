@@ -10,7 +10,8 @@ GREEN	= \033[1;32m
 RED		= \033[1;31m
 
 %.o: %.cpp
-	@${CC} ${FLAG} -c $< -o $@
+	@echo "$(GREEN)[OK]$(NOC)" "\c"
+	$(CC) $(FLAG) -c $< -o $@
 
 OBJS = $(SRC:.cpp=.o)
 
