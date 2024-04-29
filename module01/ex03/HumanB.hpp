@@ -6,10 +6,12 @@
 class HumanB{
     private :
         std::string name;
+        Weapon  *_weapon;
     public :
         HumanB(std::string);
         ~HumanB();
         void    attack();
+        void    setWeapon(Weapon&);
 };
 
 #endif
