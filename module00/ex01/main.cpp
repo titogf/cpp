@@ -8,12 +8,19 @@ void    header()
     std::cout << "  --   Type 'SEARCH' to display a specific contact   --\n" << std::endl;
 }
 
+int stoi98(const std::string& str) {
+    std::istringstream iss(str);
+    int result;
+    iss >> result;
+    return result;
+}
+
 int     check_input(std::string input){
     if (input == "")
         return (0); 
     for(int i = 0 ; input[i] ; i++)
         if (std::isdigit(input[i]) == 0) return (0);
-    if (std::stoi(input) > 7)
+    if (stoi98(input) > 7)
         return (0);
     return (1);
 }
@@ -43,7 +50,7 @@ int main()
                 if (!check_input(input))
                     std::cout << "Enter a valid number" << std::endl;
             }while (!check_input(input));
-            phonebook->search_contact(std::stoi(input));
+            phonebook->search_contact(stoi98(input) - 1);
         }
         else
             std::cout << "\nEnter a valid command ('ADD' 'SEARCH' 'EXIT')\n" << std::endl;

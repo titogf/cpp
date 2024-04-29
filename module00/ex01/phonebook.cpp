@@ -61,7 +61,7 @@ void    PhoneBook::display_contacts(){
     std::cout << std::setw(10) << "nickname" << "|" << std::endl;
 
     for (int i = 0; i < _nb; i++){
-        std::cout << std::setw(10) << i << "|";
+        std::cout << std::setw(10) << i + 1 << "|";
         std::cout << std::setw(10) << dot(_contact[i].get_first_name()) << "|";
         std::cout << std::setw(10) << dot(_contact[i].get_last_name()) << "|";
         std::cout << std::setw(10) << dot(_contact[i].get_nickname()) << "|" << std::endl;
@@ -78,7 +78,7 @@ std::string PhoneBook::dot(std::string s){
 
 void    PhoneBook::search_contact(int index){
     if (index < 0 || index >= _nb)
-        std::cout << "\nNo Number Found with " << index << std::endl;
+        std::cout << "\nNo Number Found with " << index + 1 << std::endl;
     else{
         std::cout << "\nfirst name: " << _contact[index].get_first_name() << std::endl;
         std::cout << "last name: " << _contact[index].get_last_name() << std::endl;
