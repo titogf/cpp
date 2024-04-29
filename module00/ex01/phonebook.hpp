@@ -7,7 +7,7 @@
 
 class PhoneBook{
     private :
-        Contact *_contact;
+        Contact _contact[8];
         int     _nb;
         int     _current_index;
     public :

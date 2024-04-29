@@ -1,7 +1,6 @@
 #include "phonebook.hpp"
 
 PhoneBook::PhoneBook(){
-    this->_contact = new Contact[8];
     this->_nb = 0;
     this->_current_index = 0;
 }

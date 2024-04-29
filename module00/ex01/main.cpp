@@ -11,7 +11,7 @@ void    header()
 int     check_input(std::string input){
     if (input == "")
         return (0); 
-    for(int i = 0 ; i < input.length() ; i++)
+    for(int i = 0 ; input[i] ; i++)
         if (std::isdigit(input[i]) == 0) return (0);
     if (std::stoi(input) > 7)
         return (0);
