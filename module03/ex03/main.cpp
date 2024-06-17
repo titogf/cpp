@@ -2,14 +2,34 @@
 
 int main(void)
 {
-    DiamondTrap a("Alberto");
+    DiamondTrap Bozo("Gonzalo");
+    DiamondTrap Rato("Jose");
 
-    a.takeDamage(5);
-    a.beRepaired(1);
-    a.attack("fernando");
-    a.beRepaired(3);
-    a.takeDamage(15);
-    a.whoAmI();
+    std::cout << std::endl;
+
+    Rato.attack("Bozo");
+    Bozo.takeDamage(30);
+
+    std::cout << std::endl;
+
+    Rato.attack("Bozo");
+    Bozo.takeDamage(30);
+
+    std::cout << std::endl;
+
+    Rato.attack("Bozo");
+    Bozo.takeDamage(30);
+
+    std::cout << std::endl;
+
+    Rato.guardGate();
+    Rato.highFivesGuys();
+
+    std::cout << std::endl;
+
+    Rato.whoAmI();
+
+    std::cout << std::endl;
 
     return 0;
 }
