@@ -7,17 +7,17 @@ int main(void)
 
     std::cout << std::endl;
 
-    Rato.attack("Bozo");
+    Rato.attack("Gonzalo");
     Bozo.takeDamage(30);
 
     std::cout << std::endl;
 
-    Rato.attack("Bozo");
+    Rato.attack("Gonzalo");
     Bozo.takeDamage(30);
 
     std::cout << std::endl;
 
-    Rato.attack("Bozo");
+    Rato.attack("Gonzalo");
     Bozo.takeDamage(30);
 
     std::cout << std::endl;
