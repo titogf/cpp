@@ -23,6 +23,8 @@ Dog::~Dog() {
     delete _brain;
 }
 
+const Brain& Dog::getBrain() const{ return *_brain;}
+
 void Dog::makeSound() const {
     std::cout << "Guau guau guau ..." << std::endl;
 }

@@ -14,6 +14,7 @@ class Cat : virtual public Animal{
         ~Cat();
 
         void makeSound(void) const;
+        const Brain& getBrain() const;
 };
 
 #endif

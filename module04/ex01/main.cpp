@@ -3,23 +3,6 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-void testDeepCopy() {
-    Dog originalDog;
-    originalDog._brain->setIdea(0, "Chase the ball"); // Asumiendo que tienes un método setIdea en Brain
-    originalDog._brain->setIdea(1, "Bark at the mailman");
-
-    Dog copiedDog = originalDog; // Invoca el constructor de copia
-
-    // Cambiar una idea en la copia
-    copiedDog._brain->setIdea(0, "Sleep all day");
-
-    // Verificar que el original no se ve afectado por los cambios en la copia
-    std::cout << "Original Dog's Brain Idea 0: " << originalDog._brain->getIdea(0) << std::endl;
-    std::cout << "Copied Dog's Brain Idea 0: " << copiedDog._brain->getIdea(0) << std::endl;
-
-    // Esperar que las ideas sean diferentes si la copia es profunda
-}
-
 int main()
 {
     int size = 10;
@@ -38,7 +21,14 @@ int main()
     for (int i = 0; i < size; i++)
         delete a[i];
 
-    testDeepCopy();
+    Cat* cat1 = new Cat();
+	Cat* cat2 = new Cat(*cat1);
+
+	std::cout << &cat1->getBrain() << std::endl;
+	std::cout << &cat2->getBrain() << std::endl;
+
+	delete cat1;
+	delete cat2;
 
     return 0;
 }

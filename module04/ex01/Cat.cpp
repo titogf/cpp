@@ -23,6 +23,8 @@ Cat::~Cat() {
     delete _brain;
 }
 
+const Brain& Cat::getBrain() const{ return *_brain;}
+
 void Cat::makeSound() const {
     std::cout << "Miau miau miau ..." << std::endl;
 }
