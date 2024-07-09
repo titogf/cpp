@@ -6,7 +6,7 @@ Cat::Cat() : _brain(new Brain){
 }
 
 Cat::Cat(const Cat& copy) : Animal(copy){
-    _brain = new Brain(copy.getBrain());
+    _brain = new Brain(*copy._brain);
 }
 
 Cat& Cat::operator=(const Cat& original){
