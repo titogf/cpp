@@ -35,3 +35,30 @@ Character::~Character(){
         delete inventory[i];
     }
 }
+
+void Character::equip(AMateria* a)
+{
+    for (int i = 0; i < 4; i++){
+        if (inventory[i] != NULL){
+            inventory[i] = a;
+            return;
+        }
+    }
+}
+
+void Character::unequip(int idx)
+{
+    if (idx >= 0 && idx < 4)
+        inventory[idx] = NULL;
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+    if (idx >= 0 && idx <= 3) {
+        if (inventory[idx] != NULL) {
+            inventory[idx]->use(target);
+        } else {
+            std::cout << "- Not a valid materia -" << std::endl;
+        }
+    }
+}
