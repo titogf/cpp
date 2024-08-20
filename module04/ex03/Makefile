@@ -1,4 +1,4 @@
-NAME = Inerface
+NAME = Interface
 
 SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 

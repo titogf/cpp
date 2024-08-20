@@ -46,6 +46,10 @@ void Character::equip(AMateria* a)
     }
 }
 
+std::string const& Character::getName() const{
+    return name;
+}
+
 void Character::unequip(int idx)
 {
     if (idx >= 0 && idx < 4)
