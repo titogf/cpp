@@ -39,7 +39,7 @@ Character::~Character(){
 void Character::equip(AMateria* a)
 {
     for (int i = 0; i < 4; i++){
-        if (inventory[i] != NULL){
+        if (inventory[i] == NULL){
             inventory[i] = a;
             return;
         }

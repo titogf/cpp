@@ -1,6 +1,6 @@
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria("Cure") {}
+Cure::Cure() : AMateria("cure") {}
 
 Cure::Cure(std::string const & type) : AMateria(type) {}
 
@@ -20,5 +20,5 @@ Cure* Cure::clone() const {
 }
 
 void Cure::use(ICharacter& target) {
-    std::cout << "* shoots an Cure bolt at " << target.getName() << " *" << std::endl;
+    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }
