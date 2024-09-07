@@ -49,9 +49,9 @@ void AForm::setSigned(bool b){
 void AForm::beSigned(Bureaucrat& b){
     try{
         if (b.getGrade() > this->_gradeToSign)
-            throw GradeTooLowException();
+            throw LowGradeForSign();
     }
-    catch (const GradeTooLowException& e){
+    catch (const LowGradeForSign& e){
         std::cout << e.what() << std::endl;
         return ;
     }

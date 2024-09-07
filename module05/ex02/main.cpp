@@ -1,29 +1,43 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
     Bureaucrat a("Gon", 34);
-	Bureaucrat b("Pedro", 100);
+	Bureaucrat b("Pedro", 150);
 
 	std::cout << "----" << std::endl;
-	std::cout << a << std::endl;
-	a.incrementGrade(10);
-	std::cout << a << std::endl;
-	b.decrementGrade(100);
-	std::cout << b << std::endl;
+	ShrubberyCreationForm	s("Shrubbery");
+	RobotomyRequestForm		r("Robotomy");
+	PresidentialPardonForm	p("Presidential");
 
-	std::cout << "----" << std::endl;
-	AForm f("hoja", 80, 80);
-	b.decrementGrade(1);
-	b.signForm(f);
-	a.signForm(f);
+	std::cout << "---------OK-----------" << std::endl;
+	s.beSigned(a);
+	try {
+		a.executeForm(s);
+	} catch (const std::exception &e) {
+    	std::cout << e.what() << std::endl;
+	}
 
-	std::cout << "----" << std::endl;
-	AForm e("Exam", 80, 80);
-	e.beSigned(a);
+	std::cout << "---------KO-----------" << std::endl;
+	r.beSigned(b);
+	try {
+		b.executeForm(r);
+	} catch (const std::exception &e) {
+    	std::cout << e.what() << std::endl;
+	}
+	try {
+		a.executeForm(r);
+	} catch (const std::exception &e) {
+    	std::cout << e.what() << std::endl;
+	}
 
+	
 
+	
 	std::cout << "----" << std::endl;
 
     return (0);

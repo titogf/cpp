@@ -88,3 +88,15 @@ void Bureaucrat::signForm(AForm& form){
     else
         std::cout << "<" << this->_name << "> can´t firm <" << form.getName() << "> because the bureaucrat's grade is lower than the form's grade to sign" << std::endl;
 }
+
+void Bureaucrat::executeForm(const AForm& form){
+    try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executes form " << form.getName() << std::endl;
+	}
+	catch (AForm::LowGradeForExecute &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
