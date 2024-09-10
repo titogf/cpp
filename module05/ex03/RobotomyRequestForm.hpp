@@ -2,8 +2,9 @@
 # define    ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include <cstdlib>
-#include <ctime>
+#include <cstdlib>  // Para rand() y srand()
+#include <ctime>    // Para time()
+
 class RobotomyRequestForm : public AForm
 {
     private:
