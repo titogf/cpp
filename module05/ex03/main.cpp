@@ -3,42 +3,29 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-    Bureaucrat a("Gon", 46);
-	Bureaucrat b("Pedro", 1);
+    Bureaucrat a("Gon", 16);
 
 	std::cout << "----" << std::endl;
-	ShrubberyCreationForm	s("Shrubbery");
-	RobotomyRequestForm		r("Robotomy");
-	PresidentialPardonForm	p("Presidential");
+	Intern intern;
+	AForm* iform = intern.makeForm("robotomy request", "s");
 
-	std::cout << "---------OK-----------" << std::endl;
-	s.beSigned(a);
-	try {
-		a.executeForm(s);
-	} catch (const std::exception &e) {
-    	std::cout << e.what() << std::endl;
+	std::cout << "--------------------" << std::endl;
+
+	if (iform != NULL){
+		iform->beSigned(a);
+		try {
+			a.executeForm(*iform);
+		} catch (const std::exception &e) {
+			std::cout << e.what() << std::endl;
+		}
 	}
 
-	std::cout << "---------KO-----------" << std::endl;
-	r.beSigned(b);
-	try {
-		b.executeForm(r);
-	} catch (const std::exception &e) {
-    	std::cout << e.what() << std::endl;
-	}
-	try {
-		a.executeForm(r);
-	} catch (const std::exception &e) {
-    	std::cout << e.what() << std::endl;
-	}
-
-	
-
-	
 	std::cout << "----" << std::endl;
+	delete iform;
 
     return (0);
 }
