@@ -17,12 +17,14 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const 
 {
+    std::string const name_tarjet = _target + "_shrubbery";
+	std::ofstream file(name_tarjet.c_str());
+    
     if (!this->getSigned())
         throw FormNotSignedException();
     if (this->getGradeToExecute() < executor.getGrade())
         throw LowGradeForExecute();
 
-	std::ofstream file(_target + "_shrubbery");
     if (file.is_open()) {
         file << "      ccee88oo\n"
              << "  C8O8O8Q8PoOb o8oo\n"
