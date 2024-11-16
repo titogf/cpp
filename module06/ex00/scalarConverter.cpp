@@ -96,6 +96,10 @@ void ScalarConverter::convert(std::string value){
     std::stringstream new_v;
     long double num = 0;
 
+    if (value == "-nan" || value == "-nanf"){
+        std::cout << "Bad input" << std::endl;
+        return ;
+    }
     if (!check){
         if (!decimal(value))
             check = 1;
