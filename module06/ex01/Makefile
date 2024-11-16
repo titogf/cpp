@@ -1,4 +1,4 @@
-NAME = Converter
+NAME = Serializer
 
 SRC = main.cpp serializer.cpp
 
