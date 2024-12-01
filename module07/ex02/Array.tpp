@@ -66,3 +66,6 @@ void Array<T>::setArr(const Array<T>& t) {
 
 template<typename T>
 const T* Array<T>::getArr(void) const { return arr; }
+
+template<typename T>
+unsigned int Array<T>::size(){return _i;}

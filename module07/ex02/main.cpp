@@ -14,4 +14,7 @@ int main(void){
     for (int j = 0; j < 4; j++){
         std::cout << b[j] << std::endl;
     }
+    std::cout << "Size: " << b.size() << std::endl;
+    Array<int> k (32);
+    std::cout << "Size: " << k.size() << std::endl;
 }

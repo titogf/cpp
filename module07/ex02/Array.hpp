@@ -20,6 +20,8 @@ class Array{
         T& operator[](unsigned int index);
         const T& operator[](unsigned int index) const;
 
+        unsigned int size();
+
         void setArr(const Array<T>& t);
         const T* getArr(void) const;
 };
