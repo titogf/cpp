@@ -47,18 +47,12 @@ void AForm::setSigned(bool b){
 }
 
 void AForm::beSigned(Bureaucrat& b){
-    try{
-        if (b.getGrade() > this->_gradeToSign)
-            throw LowGradeForSign();
-    }
-    catch (const LowGradeForSign& e){
-        std::cout << e.what() << std::endl;
-        return ;
-    }
     if (b.getGrade() <= _gradeToSign){
         _signed = true;
-        std::cout << "AForm: " << this->_name << " is signed by " << b.getName() << std::endl;
+        std::cout << "Form: " << this->_name << " is signed by " << b.getName() << std::endl;
     }
+    else
+        std::cout << b.getName() << " couldn´t sign " << this->_name << " because grade of bureaucrat is too low"  << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, const AForm &AForm) {

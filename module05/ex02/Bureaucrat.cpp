@@ -6,18 +6,10 @@ Bureaucrat::Bureaucrat(){
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-    try{
-        if (_grade < 1)
-            throw Bureaucrat::GradeTooHighException();
-        else if (_grade > 150)
-            throw Bureaucrat::GradeTooLowException();
-    }
-    catch (const GradeTooHighException& e){
-        std::cout << e.what() << std::endl;
-    }
-    catch (const GradeTooLowException& e){
-        std::cout << e.what() << std::endl;
-    }
+    if (_grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if (_grade > 150)
+        throw Bureaucrat::GradeTooLowException();
     std::cout << "Bureaucrat created: " << _name << std::endl;
 }
 
@@ -52,26 +44,14 @@ void Bureaucrat::setGrade(int grade){
 }
 
 void Bureaucrat::incrementGrade(int amount){
-    try {
-		if (this->getGrade() - amount < 1)
-			throw Bureaucrat::GradeTooHighException();
-	}
-	catch (Bureaucrat::GradeTooHighException & e) {
-		std::cout << e.what() << std::endl;
-		return;
-	}
+	if (this->getGrade() - amount < 1)
+		throw Bureaucrat::GradeTooHighException();
     this->setGrade(getGrade() - amount);
 }
 
 void Bureaucrat::decrementGrade(int amount){
-	try {
-		if (this->getGrade() + amount > 150)
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch (Bureaucrat::GradeTooLowException & e) {
-		std::cout << e.what() << std::endl;
-		return;
-	}
+	if (this->getGrade() + amount > 150)
+		throw Bureaucrat::GradeTooLowException();
     this->setGrade(getGrade() + amount);
 }
 

@@ -5,18 +5,10 @@ AForm::AForm() : _name("null"), _signed(false), _gradeToSign(0), _gradeToExecute
 
 AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-    try{
-        if (gradeToExecute < 1 || gradeToSign < 1)
-            throw AForm::GradeTooHighException();
-        else if (gradeToSign > 150 || gradeToSign > 150)
-            throw AForm::GradeTooLowException();
-    }
-    catch (const GradeTooHighException& e){
-        std::cout << e.what() << std::endl;
-    }
-    catch (const GradeTooLowException& e){
-        std::cout << e.what() << std::endl;
-    }
+    if (gradeToExecute < 1 || gradeToSign < 1)
+        throw AForm::GradeTooHighException();
+    else if (gradeToSign > 150 || gradeToSign > 150)
+        throw AForm::GradeTooLowException();
     std::cout << "AForm created: " << _name << std::endl;
 }
 
@@ -47,18 +39,12 @@ void AForm::setSigned(bool b){
 }
 
 void AForm::beSigned(Bureaucrat& b){
-    try{
-        if (b.getGrade() > this->_gradeToSign)
-            throw LowGradeForSign();
-    }
-    catch (const LowGradeForSign& e){
-        std::cout << e.what() << std::endl;
-        return ;
-    }
     if (b.getGrade() <= _gradeToSign){
         _signed = true;
-        std::cout << "AForm: " << this->_name << " is signed by " << b.getName() << std::endl;
+        std::cout << "Form: " << this->_name << " is signed by " << b.getName() << std::endl;
     }
+    else
+        std::cout << b.getName() << " couldn´t sign " << this->_name << " because grade of bureaucrat is too low"  << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, const AForm &AForm) {
