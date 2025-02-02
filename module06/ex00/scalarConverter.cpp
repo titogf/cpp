@@ -103,7 +103,7 @@ void ScalarConverter::convert(std::string value){
     if (!check){
         if (!decimal(value))
             check = 1;
-        if (value.back() == 'f')
+        if (value[value.size() - 1] == 'f')
             value = value.substr(0, value.size() - 1);
         
         new_v << value;

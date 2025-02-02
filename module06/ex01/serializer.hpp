@@ -5,6 +5,8 @@
 # include <sstream>
 # include <climits>
 # include <cfloat>
+# include <stdint.h>
+
 
 struct Data {
     int number;
