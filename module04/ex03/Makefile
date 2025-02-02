@@ -2,7 +2,7 @@ NAME = Interface
 
 SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
-CC = clang++
+CC = c++
 FLAG = -Werror -Wextra -Wall -std=c++98
 
 NOC		= \033[0m

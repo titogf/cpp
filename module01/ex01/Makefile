@@ -2,7 +2,7 @@ NAME = Zombie
 
 SRC = main.cpp Zombie.cpp zombieHorde.cpp
 
-CC = clang++
+CC = c++
 FLAG = -Werror -Wextra -Wall -std=c++98
 
 NOC		= \033[0m

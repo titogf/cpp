@@ -2,7 +2,7 @@ NAME = Violence
 
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
-CC = clang++
+CC = c++
 FLAG = -Werror -Wextra -Wall -std=c++98
 
 NOC		= \033[0m

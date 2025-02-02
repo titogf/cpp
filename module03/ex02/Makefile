@@ -2,7 +2,7 @@ NAME = FragTrap
 
 SRC = main.cpp ClapTrap.cpp FragTrap.cpp
 
-CC = clang++
+CC = c++
 FLAG = -Werror -Wextra -Wall -std=c++98
 
 NOC		= \033[0m

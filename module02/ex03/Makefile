@@ -2,7 +2,7 @@ NAME = fixed
 
 SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
 
-CC = clang++
+CC = c++
 FLAG = -Werror -Wextra -Wall -std=c++98
 
 NOC		= \033[0m
