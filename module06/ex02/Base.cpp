@@ -38,17 +38,23 @@ void identify(Base& p){
         A &a = dynamic_cast<A &>(p);
         (void) a;
         std::cout << "&-> A" << std::endl;
-    } catch (std::exception &e) {}
+    } catch (std::exception &e) {
+        std::cout << "A not found" << std::endl;
+    }
 
     try {
         B &b = dynamic_cast<B &>(p);
         (void) b;
         std::cout << "&-> B" << std::endl;
-    } catch (std::exception &e) {}
+    } catch (std::exception &e) {
+        std::cout << "B not found" << std::endl;
+    }
 
     try {
         C &c = dynamic_cast<C &>(p);
         (void) c;
         std::cout << "&-> C" << std::endl;
-    } catch (std::exception &e) {}
+    } catch (std::exception &e) {
+        std::cout << "C not found" << std::endl;
+    }
 }
