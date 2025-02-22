@@ -17,8 +17,8 @@ OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) : $(SRC) $(OBJS)
-	$(CC) $(FLAG) $(SRC) -o $(NAME)
+$(NAME) : $(OBJS)
+	$(CC) $(FLAG) $(OBJS) -o $(NAME)
 	@echo "$(GREEN) $(NAME) Generated! ✓ $(NOC)"
 
 clean :
