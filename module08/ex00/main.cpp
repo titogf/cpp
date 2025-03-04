@@ -10,11 +10,11 @@ int main(void){
         lst.push_back(i + 1);
     }
     std::cout << "Vector: " << std::endl;
-    ::easyfind(vec, 5);
-    ::easyfind(vec, 42);
+    easyfind(vec, 5);
+    easyfind(vec, 42);
     std::cout << std::endl << "List: " << std::endl;
-    ::easyfind(lst, 5);
-    ::easyfind(lst, 42);
+    easyfind(lst, 5);
+    easyfind(lst, 42);
 
     return 0;
 }

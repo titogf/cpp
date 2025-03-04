@@ -7,14 +7,14 @@
 #include <list>
 
 template<typename T>
-int easyfind(T t, int i){
-    typename T::const_iterator value = std::find(t.begin(), t.end(), i);
-    if (value == t.end()){
+typename T::iterator easyfind(T t, int i){
+    typename T::iterator it = std::find(t.begin(), t.end(), i);
+    if (it == t.end()){
         std::cout << "Value not found" << std::endl;
-        return -1;
+        return it;
     }
-    std::cout << "Value found: " << *value << std::endl;
-    return 0;
+    std::cout << "Value found: " << *it << std::endl;
+    return it;
 }
 
 #endif
