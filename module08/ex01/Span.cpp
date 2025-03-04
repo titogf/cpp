@@ -26,6 +26,15 @@ void Span::addNumber(int num) {
     currentIndex++;
 }
 
+void Span::addNumber(unsigned int numbers, time_t time) {
+    if (size < numbers)
+        throw std::runtime_error("Size to small");
+    srand(time);
+    for (unsigned int i = 0; i < numbers; i++){
+       addNumber(rand() / 10000000);
+    }
+}
+
 int Span::shortestSpan(){
     if (size < 2)
         throw std::runtime_error("Size to small");

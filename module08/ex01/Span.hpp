@@ -4,6 +4,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <ctime>
 
 class Span{
     private:
@@ -18,6 +19,7 @@ class Span{
         ~Span(void);
 
         void addNumber(int num);
+        void addNumber(unsigned int numbers, time_t time);
         int shortestSpan();
         int longestSpan();
 
