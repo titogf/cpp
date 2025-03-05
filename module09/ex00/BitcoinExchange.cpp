@@ -1,32 +1,34 @@
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(){
+BitcoinExchange::BitcoinExchange() {
     std::ifstream file("data.csv");
-    if (!file.is_open()){
+    if (!file.is_open()) {
         std::cout << "Error: Could not open file" << std::endl;
-        return ;
+        return;
     }
 
     std::string line;
 
-    if (std::getline(file, line)){
+    if (std::getline(file, line)) {
         while (std::getline(file, line)) {
             size_t commaPos = line.find(',');
             if (commaPos == std::string::npos) {
-                throw std::runtime_error("Formato incorrecto en el archivo");
+                throw std::runtime_error("Incorrect format file");
             }
 
             std::string date = line.substr(0, commaPos);
             std::string price = line.substr(commaPos + 1);
 
-            try {
-                float p = std::stof(price);
-                csv[date] = p;
-            } catch (const std::invalid_argument& e) {
-                throw std::runtime_error("Precio no válido: " + price);
-            } catch (const std::out_of_range& e) {
-                throw std::runtime_error("Precio fuera de rango: " + price);
-            } 
+            // Convert price to float
+            char* endPtr;
+            float p = std::strtof(price.c_str(), &endPtr);
+
+            // Check for conversion errors
+            if (*endPtr != '\0' || price.empty()) {
+                throw std::runtime_error("Price not valid: " + price);
+            }
+
+            csv[date] = p;
         }
     }
     file.close();
@@ -83,12 +85,12 @@ void BitcoinExchange::exc(std::string date, float value) {
     if (it != csv.begin()) {
         --it;
         float price = value * it->second;
-        std::cout << it->first << " => " << price << std::endl;
+        std::cout << date << " => " << price << std::endl;
         return;
     }
 
     // Si estás en el principio y no hay fechas válidas, imprime error
-    std::cerr << "Error: No hay fechas disponibles más antiguas." << std::endl;
+    std::cerr << "Error: No older dates available." << std::endl;
 }
 
 
