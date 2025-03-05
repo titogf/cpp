@@ -96,7 +96,7 @@ void BitcoinExchange::exc(std::string date, float value) {
 
 
 void BitcoinExchange::exc_input(std::string input) {
-    std::ifstream file(input);
+    std::ifstream file(input.c_str());
     if (!file.is_open()) {
         std::cout << "Error: Could not open input file" << std::endl;
         return;
@@ -124,20 +124,20 @@ void BitcoinExchange::exc_input(std::string input) {
             continue;
         }
 
-        try {
-            float val = std::stof(value);
+        char* endPtr;
+        float val = std::strtof(value.c_str(), &endPtr);
 
-            if (val < 0) {
-                std::cout << "Error: not a positive number." << std::endl;
-            } else if (val > 1000) {
-                std::cout << "Error: too large a number." << std::endl;
-            } else {
-                exc(date, std::stof(value));
-            }
-        } catch (const std::invalid_argument&) {
+        if (*endPtr != '\0' || value.empty()) {
             std::cout << "Error: bad input => " << value << std::endl;
-        } catch (const std::out_of_range&) {
+            continue;
+        }
+
+        if (val < 0) {
+            std::cout << "Error: not a positive number." << std::endl;
+        } else if (val > 1000) {
             std::cout << "Error: too large a number." << std::endl;
+        } else {
+            exc(date, val);
         }
     }
 
