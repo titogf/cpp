@@ -5,6 +5,8 @@
 #include <map>
 #include <fstream>
 #include <string>
+#include <stdexcept>
+#include <climits>
 
 class BitcoinExchange {
     private:
@@ -18,6 +20,9 @@ class BitcoinExchange {
 
         void exc_input(std::string input);
         void exc(std::string date, float value);
+        float string_to_float(const std::string& str);
+        int string_to_int(const std::string& str);
+        bool is_valid_date(const std::string& date);
 };
 
 #endif
